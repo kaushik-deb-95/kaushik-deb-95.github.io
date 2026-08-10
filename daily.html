@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily AI brief — Road to Million</title>
+<meta name="description" content="What happened in AI today, read by an engineer learning to build with it. Published most mornings from Perth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#e6ebf1; --paper-deep:#d6dee7; --ink:#16233a;
+  --ink-soft:#54637c; --rule:#a9b8ca; --signal:#c8471f; --ok:#1c6b52;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--paper-deep) 1px,transparent 1px),
+    linear-gradient(90deg,var(--paper-deep) 1px,transparent 1px);
+  background-size:44px 44px;
+  color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+
+header{border-bottom:1px solid var(--rule);background:rgba(255,255,255,.5)}
+.masthead{display:flex;justify-content:space-between;align-items:center;
+  gap:16px;padding:18px 0;flex-wrap:wrap}
+.mark{font-family:"Archivo",sans-serif;font-weight:800;letter-spacing:-.02em;
+  font-size:17px;text-decoration:none}
+.mark span{color:var(--signal)}
+nav a{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;text-decoration:none;color:var(--ink-soft)}
+nav a:hover{color:var(--signal)}
+
+.intro{padding:60px 0 40px}
+.intro h1{font-family:"Archivo",sans-serif;font-weight:800;
+  font-size:clamp(36px,8vw,64px);line-height:.95;letter-spacing:-.04em;
+  text-transform:uppercase}
+.intro h1 em{font-style:normal;color:var(--signal)}
+.intro p{max-width:54ch;margin-top:20px;color:var(--ink-soft)}
+
+.day{border-top:1px solid var(--rule);padding:40px 0}
+.day .lede{margin:14px 0 30px;font-size:17px;max-width:58ch}
+.story{padding:22px 0;border-top:1px solid var(--rule)}
+.story:first-of-type{border-top:1px dashed var(--rule)}
+.story h3{font-family:"Archivo",sans-serif;font-weight:600;font-size:20px;
+  letter-spacing:-.01em;margin-bottom:10px}
+.story p{color:var(--ink-soft);font-size:15px}
+.why{margin-top:12px;padding-left:14px;border-left:2px solid var(--signal);
+  font-size:14.5px;color:var(--ink)}
+.meta{display:flex;gap:14px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.meta .src{font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.meta a{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--signal);text-decoration:none}
+.meta a:hover{text-decoration:underline}
+
+.empty{padding:60px 0;color:var(--ink-soft)}
+footer{border-top:1px solid var(--rule);padding:34px 0 60px;margin-top:30px}
+footer small{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap masthead">
+    <a class="mark" href="./">ROAD TO <span>MILLION</span></a>
+    <nav><a href="./">← Back to the ledger</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="intro">
+    <div class="eyebrow">Published most mornings, Perth time</div>
+    <h1>Daily <em>AI</em> brief</h1>
+    <p>An engineer reading the AI news so you don't have to. Written for people who build things and don't have an hour to spend on hype. Every story links back to the source — go read the ones that matter to you.</p>
+  </div>
+  <div id="days"><div class="empty">Loading the archive…</div></div>
+</main>
+
+<footer class="wrap">
+  <small>Summaries written with Claude, reviewed by a human before publishing. All credit and traffic go to the original sources.</small>
+</footer>
+
+<script>
+fetch("daily/posts.json")
+  .then(r => r.json())
+  .then(posts => {
+    const box = document.getElementById("days");
+    if (!posts.length) {
+      box.innerHTML = '<div class="empty">No briefs published yet. The first one lands tomorrow morning.</div>';
+      return;
+    }
+    box.innerHTML = posts.map(day => `
+      <article class="day">
+        <div class="eyebrow">${new Date(day.date).toLocaleDateString("en-AU",
+          {weekday:"long",day:"numeric",month:"long",year:"numeric"})}</div>
+        <p class="lede">${day.intro}</p>
+        ${day.items.map(s => `
+          <div class="story">
+            <h3>${s.headline}</h3>
+            <p>${s.summary}</p>
+            <div class="why">${s.why}</div>
+            <div class="meta">
+              <span class="src">${s.source}</span>
+              <a href="${s.link}" target="_blank" rel="noopener">Read the original →</a>
+            </div>
+          </div>`).join("")}
+      </article>`).join("");
+  })
+  .catch(() => {
+    document.getElementById("days").innerHTML =
+      '<div class="empty">Couldn\'t load the archive. Refresh, or check back shortly.</div>';
+  });
+</script>
+</body>
+</html>

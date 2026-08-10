@@ -1,0 +1,42 @@
+name: Daily AI brief
+
+on:
+  schedule:
+    - cron: "0 23 * * *"   # 23:00 UTC = 7:00am Perth
+  workflow_dispatch:        # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build the draft
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/build_brief.py
+
+      - name: Open a pull request for review
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Daily brief draft"
+          branch: draft/daily-brief
+          delete-branch: true
+          title: "Draft: AI brief"
+          body: |
+            Automated draft. Read it, fix anything wrong, then Merge to publish.
+            Close this without merging if the day isn't worth posting.
+          add-paths: |
+            daily/posts.json
+            daily/seen.json
