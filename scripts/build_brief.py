@@ -26,7 +26,6 @@ SEEN_MEMORY = 600        # how many old links to remember
 
 # Add or remove freely. Anything with an RSS feed works.
 FEEDS = [
-    ("Anthropic",        "https://www.anthropic.com/news/rss.xml"),
     ("OpenAI",           "https://openai.com/news/rss.xml"),
     ("Google DeepMind",  "https://deepmind.google/blog/rss.xml"),
     ("Hugging Face",     "https://huggingface.co/blog/feed.xml"),
