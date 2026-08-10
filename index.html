@@ -51,7 +51,10 @@ const DATA = {
   ],
 
   // ── JOURNAL ────────────────────────────────────────────────────
-  // Newest post at the TOP. Each paragraph is its own "quoted line".
+  // Newest post at the TOP.
+// For a full post on its own page: copy blog/template.html, fill it in,
+// save it as blog/your-slug.html, then add: { date, title, link }
+// For a quick inline note instead, add { date, title, body: [...] }
   posts: [
     {
       date: "2026-08-10",
@@ -261,6 +264,18 @@ nav a:hover{color:var(--signal)}
   .post .body{padding-left:0}
 }
 
+.post-link{display:grid;grid-template-columns:112px 1fr auto;gap:18px;align-items:baseline;padding:20px 0;text-decoration:none;color:inherit;border-bottom:1px solid var(--rule)}
+.post-link:hover h3{color:var(--signal)}
+.post-link time{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft)}
+.post-link h3{font-family:"Archivo",sans-serif;font-weight:600;font-size:19px;letter-spacing:-.01em}
+.post-link .chev{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--signal)}
+@media(max-width:620px){
+.post-link{grid-template-columns:1fr auto;gap:4px 14px}
+.post-link time{grid-column:1}
+.post-link .chev{grid-column:2;grid-row:1}
+.post-link h3{grid-column:1/-1}
+}
+
 /* ── projects ── */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
   gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:28px}
@@ -468,17 +483,26 @@ footer{border-top:1px solid var(--rule);padding:40px 0 60px;margin-top:40px}
     </div>`).join("");
 
   // journal
-  document.getElementById("postList").innerHTML = D.posts.map((p,i) => `
-    <details class="post" ${i===0?"open":""}>
-      <summary>
-        <time>${new Date(p.date).toLocaleDateString("en-AU",{day:"2-digit",month:"short",year:"numeric"})}</time>
-        <h3>${p.title}</h3>
-        <span class="chev">+</span>
-      </summary>
-      <div class="body">${p.body.map(t => `<p>${t}</p>`).join("")}</div>
-    </details>`).join("");
+  document.getElementById("postList").innerHTML = D.posts.map((p,i) => {
+const d = new Date(p.date).toLocaleDateString("en-AU",{day:"2-digit",month:"short",year:"numeric"});
+if(p.link){
+return `<a class="post-link" href="${p.link}">
+<time>${d}</time>
+<h3>${p.title}</h3>
+<span class="chev">→</span>
+</a>`;
+}
+return `<details class="post" ${i===0?"open":""}>
+<summary>
+<time>${d}</time>
+<h3>${p.title}</h3>
+<span class="chev">+</span>
+</summary>
+<div class="body">${p.body.map(t => `<p>${t}</p>`).join("")}</div>
+</details>`;
+}).join("");
 
-  // projects
+// projects
   document.getElementById("projectGrid").innerHTML = D.projects.map(p => `
     <div class="card">
       <span class="status"><span class="dot ${p.status}"></span>${p.status}</span>
