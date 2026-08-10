@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Road to Million</title>
+<meta name="description" content="An engineer in Perth, building his way to a million dollars in savings. Public ledger, live countdown, every project along the way.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     EDIT EVERYTHING BELOW THIS LINE. NOTHING ELSE.
+     To update your savings: add ONE new line to the ledger.
+     Newest entry goes at the TOP. Keep the format exactly the same.
+     ══════════════════════════════════════════════════════════════════ -->
+<script>
+const DATA = {
+
+  name: "Your Name",
+  role: "Mechanical engineer, Perth",
+  goal: 1000000,
+  currency: "AUD",
+  startDate:  "2026-08-10",   // the day the clock started
+  targetDate: "2030-08-10",   // four years later
+
+  intro: "I'm a mechanical engineer who moved to Australia, works a day job, and is teaching himself to build software. The plan is one million dollars in savings in four years, built from apps and small businesses I make myself. Everything is public — the number, the failures, the code.",
+
+  // ── YEAR ONE ───────────────────────────────────────────────────
+  // The million is the destination. This is the part I control now.
+  // Flip done: false → true when you hit one.
+  year1: {
+    goal: 40000,
+    endDate: "2027-08-10",
+    milestones: [
+      { label: "Ship the grocery app to the Play Store", done: false },
+      { label: "Earn my first dollar from software",     done: false },
+      { label: "Ship a second thing",                    done: false },
+      { label: "50 people using something I made",       done: false },
+    ],
+  },
+
+  // ── YOUR LEDGER ────────────────────────────────────────────────
+  // Each line: { date, amount, note }
+  // amount = what you SAVED that day/week (not your total).
+  // The site adds them up for you.
+  ledger: [
+    { date: "2026-08-10", amount: 0, note: "Day one. Counter starts at zero." },
+  ],
+
+  // ── JOURNAL ────────────────────────────────────────────────────
+  // Newest post at the TOP. Each paragraph is its own "quoted line".
+  posts: [
+    {
+      date: "2026-08-10",
+      title: "Day one, and the counter says zero",
+      body: [
+        "I put this site up before I had anything to show on it. That was on purpose. A counter starting at zero in public is harder to walk away from than a plan in my head.",
+        "I'm a mechanical engineer. I've spent years around diesel generating units and rotating equipment, and about five weeks around Flutter. The gap between those two numbers is the whole story of this site.",
+        "First job: ship the grocery app. Everything else waits.",
+      ],
+    },
+  ],
+
+
+  // status: "live" | "building" | "planned" | "dead"
+  projects: [
+    {
+      name: "Grocery Tracker",
+      status: "building",
+      problem: "I throw out food I forgot I bought.",
+      what: "An Android app that tracks what's in the fridge and warns me before it expires. Built in Flutter — my first app, and how I'm learning to code.",
+      link: ""
+    },
+    {
+      name: "Road to Million",
+      status: "live",
+      problem: "Goals kept in your head are easy to quit.",
+      what: "This site. A public counter is harder to ignore than a private one.",
+      link: ""
+    },
+  ],
+
+  links: [
+    { label: "Email",  url: "mailto:you@example.com" },
+    { label: "GitHub", url: "https://github.com/yourusername" },
+  ],
+};
+</script>
+<!-- ══════════════ STOP EDITING. THE MACHINERY IS BELOW. ══════════════ -->
+
+<style>
+:root{
+  --paper:#e6ebf1;
+  --paper-deep:#d6dee7;
+  --ink:#16233a;
+  --ink-soft:#54637c;
+  --rule:#a9b8ca;
+  --signal:#c8471f;
+  --signal-soft:#f0d4c9;
+  --ok:#1c6b52;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--paper-deep) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-deep) 1px, transparent 1px);
+  background-size:44px 44px;
+  color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+
+/* ── shared bits ── */
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.panel{
+  background:rgba(255,255,255,.72);
+  border:1px solid var(--rule);
+  backdrop-filter:blur(2px);
+}
+section{padding:72px 0}
+h2.head{
+  font-family:"Archivo",sans-serif;font-weight:800;
+  font-size:clamp(24px,4vw,34px);letter-spacing:-.02em;
+  margin-bottom:6px;
+}
+
+/* ── masthead ── */
+header{border-bottom:1px solid var(--rule);background:rgba(255,255,255,.5)}
+.masthead{display:flex;justify-content:space-between;align-items:center;
+  gap:16px;padding:18px 0;flex-wrap:wrap}
+.mark{font-family:"Archivo",sans-serif;font-weight:800;letter-spacing:-.02em;font-size:17px}
+.mark span{color:var(--signal)}
+nav{display:flex;gap:22px}
+nav a{font-family:"IBM Plex Mono",monospace;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft)}
+nav a:hover{color:var(--signal)}
+
+/* ── hero ── */
+.hero{padding:64px 0 40px}
+.hero h1{
+  font-family:"Archivo",sans-serif;font-weight:800;
+  font-size:clamp(44px,10vw,104px);line-height:.92;letter-spacing:-.045em;
+  text-transform:uppercase;
+}
+.hero h1 em{font-style:normal;color:var(--signal)}
+.hero p.lede{max-width:56ch;margin-top:22px;color:var(--ink-soft);font-size:17px}
+
+/* ── the gauge ── */
+.gauge{margin-top:52px;padding:30px 28px 26px;position:relative}
+.readout{display:flex;align-items:flex-end;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.amount{
+  font-family:"IBM Plex Mono",monospace;font-weight:600;
+  font-size:clamp(38px,8.5vw,76px);line-height:1;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;
+}
+.amount .cur{font-size:.4em;color:var(--ink-soft);margin-right:.16em;vertical-align:.42em}
+.pct{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-soft);
+  text-align:right;font-variant-numeric:tabular-nums}
+.pct b{display:block;font-size:26px;color:var(--signal);font-weight:600;line-height:1.2}
+
+.rail{position:relative;height:46px;margin-bottom:8px}
+.rail-bg{position:absolute;inset:16px 0 auto 0;height:14px;
+  background:var(--paper-deep);border:1px solid var(--rule)}
+.rail-fill{position:absolute;top:16px;left:0;height:14px;
+  background:var(--signal);width:0;transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.tick{position:absolute;top:6px;bottom:0;width:1px;background:var(--rule)}
+.tick i{position:absolute;top:36px;left:50%;transform:translateX(-50%);
+  font-family:"IBM Plex Mono",monospace;font-size:10px;font-style:normal;
+  color:var(--ink-soft);white-space:nowrap}
+.rail-note{font-family:"IBM Plex Mono",monospace;font-size:11px;
+  color:var(--ink-soft);margin-top:22px;letter-spacing:.04em}
+
+/* ── clock strip ── */
+.clock{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  border-top:1px solid var(--rule);margin-top:26px}
+.cell{padding:20px 0 4px;border-right:1px solid var(--rule)}
+.cell:last-child{border-right:0}
+.cell b{display:block;font-family:"IBM Plex Mono",monospace;font-weight:600;
+  font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
+.cell .eyebrow{margin-top:4px}
+.days-strip{display:flex;gap:2px;height:26px;margin-top:30px;align-items:stretch}
+.days-strip div{flex:1;background:var(--rule)}
+.days-strip div.spent{background:var(--signal-soft)}
+
+/* ── year one ── */
+.y1{margin-top:26px;padding:26px 28px;display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:38px}
+@media(max-width:720px){.y1{grid-template-columns:1fr;gap:30px}}
+.y1-amount{font-family:"IBM Plex Mono",monospace;font-weight:600;
+  font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums;margin:10px 0 4px}
+.y1-amount small{font-weight:400;font-size:15px;color:var(--ink-soft)}
+.y1-bar{height:10px;background:var(--paper-deep);border:1px solid var(--rule);
+  margin-top:16px;position:relative}
+.y1-bar i{position:absolute;inset:0 auto 0 0;background:var(--ink);width:0;
+  transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.y1 .sub{font-family:"IBM Plex Mono",monospace;font-size:11px;
+  color:var(--ink-soft);margin-top:12px;letter-spacing:.04em}
+.checks{list-style:none;margin-top:14px}
+.checks li{display:flex;gap:12px;align-items:flex-start;padding:9px 0;
+  border-bottom:1px solid var(--rule);font-size:14.5px}
+.checks li:last-child{border-bottom:0}
+.box{flex:0 0 15px;height:15px;margin-top:4px;border:1px solid var(--ink-soft);
+  position:relative;background:transparent}
+.checks li.done .box{background:var(--ok);border-color:var(--ok)}
+.checks li.done .box::after{content:"";position:absolute;left:4px;top:1px;
+  width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+.checks li.done span{color:var(--ink-soft);text-decoration:line-through}
+
+/* ── ledger ── */
+.ledger-list{border-top:1px solid var(--rule);margin-top:28px}
+.entry{display:grid;grid-template-columns:112px 1fr 130px;gap:18px;
+  padding:16px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.entry time{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft)}
+.entry .note{font-size:15px}
+.entry .amt{font-family:"IBM Plex Mono",monospace;font-weight:600;
+  text-align:right;font-variant-numeric:tabular-nums}
+.entry .amt.pos{color:var(--ok)}
+.entry .amt.neg{color:var(--signal)}
+@media(max-width:620px){
+  .entry{grid-template-columns:1fr auto;gap:4px 14px}
+  .entry time{grid-column:1}
+  .entry .amt{grid-column:2;grid-row:1}
+  .entry .note{grid-column:1/-1}
+}
+
+/* ── journal ── */
+.posts{border-top:1px solid var(--rule);margin-top:28px}
+.post{border-bottom:1px solid var(--rule)}
+.post summary{list-style:none;cursor:pointer;padding:20px 0;
+  display:grid;grid-template-columns:112px 1fr auto;gap:18px;align-items:baseline}
+.post summary::-webkit-details-marker{display:none}
+.post summary time{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft)}
+.post summary h3{font-family:"Archivo",sans-serif;font-weight:600;
+  font-size:19px;letter-spacing:-.01em}
+.post summary .chev{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--signal)}
+.post[open] summary .chev{transform:rotate(45deg)}
+.post summary:hover h3{color:var(--signal)}
+.post .body{padding:0 0 26px 130px;max-width:64ch}
+.post .body p{margin-bottom:14px;color:var(--ink-soft)}
+.post .body p:last-child{margin-bottom:0}
+@media(max-width:620px){
+  .post summary{grid-template-columns:1fr auto;gap:4px 14px}
+  .post summary time{grid-column:1}
+  .post summary .chev{grid-column:2;grid-row:1}
+  .post summary h3{grid-column:1/-1}
+  .post .body{padding-left:0}
+}
+
+/* ── projects ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:28px}
+.card{background:rgba(255,255,255,.78);padding:26px 24px}
+.card h3{font-family:"Archivo",sans-serif;font-weight:800;font-size:21px;
+  letter-spacing:-.01em;margin:10px 0 12px}
+.status{display:inline-flex;align-items:center;gap:7px;
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ink-soft)}
+.dot.live{background:var(--ok)}
+.dot.building{background:var(--signal)}
+.dot.dead{background:var(--rule)}
+.card .problem{font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+  color:var(--signal);margin-bottom:10px}
+.card p.what{font-size:14.5px;color:var(--ink-soft)}
+.card a.visit{display:inline-block;margin-top:14px;font-family:"IBM Plex Mono",monospace;
+  font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--signal)}
+
+/* ── footer ── */
+footer{border-top:1px solid var(--rule);padding:40px 0 60px;margin-top:40px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot-links{display:flex;gap:20px}
+.foot-links a{font-family:"IBM Plex Mono",monospace;font-size:12px;
+  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft)}
+.foot-links a:hover{color:var(--signal)}
+.foot small{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft)}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<header>
+  <div class="wrap masthead">
+    <div class="mark">ROAD TO <span>MILLION</span></div>
+    <nav>
+      <a href="#ledger">Ledger</a>
+      <a href="#journal">Journal</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow" id="dayCount">Day 1 of 1,461</div>
+    <h1>One million<br>dollars.<br><em>Four years.</em></h1>
+    <p class="lede" id="intro"></p>
+  </div>
+
+  <div class="gauge panel">
+    <div class="readout">
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px">Saved so far</div>
+        <div class="amount"><span class="cur">$</span><span id="total">0</span></div>
+      </div>
+      <div class="pct">
+        <b id="pctNum">0.0%</b>
+        of the way there
+      </div>
+    </div>
+
+    <div class="rail" id="rail">
+      <div class="rail-bg"></div>
+      <div class="rail-fill" id="fill"></div>
+    </div>
+    <div class="rail-note" id="railNote"></div>
+
+    <div class="clock">
+      <div class="cell"><b id="daysLeft">—</b><div class="eyebrow">Days remaining</div></div>
+      <div class="cell"><b id="actualPerDay">—</b><div class="eyebrow">Actual per day</div></div>
+    </div>
+    <div class="days-strip" id="strip" aria-hidden="true"></div>
+  </div>
+
+  <div class="y1 panel">
+    <div>
+      <div class="eyebrow">Year one · the part I control</div>
+      <div class="y1-amount"><span id="y1Now">$0</span> <small id="y1Goal">of $40,000</small></div>
+      <div class="y1-bar"><i id="y1Fill"></i></div>
+      <div class="sub" id="y1Sub"></div>
+    </div>
+    <div>
+      <div class="eyebrow">Not money — proof the machine works</div>
+      <ul class="checks" id="y1Checks"></ul>
+    </div>
+  </div>
+
+  <section id="ledger">
+    <h2 class="head">The ledger</h2>
+    <p style="color:var(--ink-soft);max-width:54ch">Every dollar, logged. Bad months stay on the record too — that's the point of doing this in public.</p>
+    <div class="ledger-list" id="ledgerList"></div>
+  </section>
+
+  <section id="journal">
+    <h2 class="head">Journal</h2>
+    <p style="color:var(--ink-soft);max-width:54ch">What I tried, what broke, what I learned. Written for whoever is one step behind me.</p>
+    <div class="posts" id="postList"></div>
+  </section>
+
+  <section id="projects">
+    <h2 class="head">What I'm building</h2>
+    <p style="color:var(--ink-soft);max-width:54ch">Each one started as something that annoyed me. The money is supposed to follow the fix.</p>
+    <div class="grid" id="projectGrid"></div>
+  </section>
+
+  <section id="about">
+    <h2 class="head">Who's doing this</h2>
+    <p style="color:var(--ink-soft);max-width:60ch" id="aboutText"></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-links" id="footLinks"></div>
+    <small id="stamp"></small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const D = DATA, DAY = 86400000;
+  const money = n => Math.round(n).toLocaleString("en-AU");
+  const start = new Date(D.startDate), target = new Date(D.targetDate), now = new Date();
+
+  const totalDays = Math.round((target - start)/DAY);
+  const elapsed   = Math.max(0, Math.min(totalDays, Math.round((now - start)/DAY)));
+  const left      = Math.max(0, totalDays - elapsed);
+
+  const saved = D.ledger.reduce((s,e) => s + e.amount, 0);
+  const pct   = Math.min(100, saved / D.goal * 100);
+
+  document.getElementById("intro").textContent = D.intro;
+  document.getElementById("aboutText").textContent = D.intro;
+  document.getElementById("dayCount").textContent =
+    "Day " + (elapsed+1).toLocaleString() + " of " + totalDays.toLocaleString();
+  document.getElementById("daysLeft").textContent = left.toLocaleString();
+  document.getElementById("actualPerDay").textContent = "$" + money(saved / Math.max(1, elapsed));
+  document.getElementById("pctNum").textContent = pct.toFixed(1) + "%";
+  document.getElementById("railNote").textContent =
+    "$" + money(D.goal - saved) + " " + D.currency + " to go · target " +
+    target.toLocaleDateString("en-AU",{day:"numeric",month:"long",year:"numeric"});
+  document.getElementById("stamp").textContent =
+    "Last updated " + new Date(D.ledger[0].date)
+      .toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"});
+
+  // milestone ticks
+  const rail = document.getElementById("rail");
+  [0,.25,.5,.75,1].forEach(f=>{
+    const t = document.createElement("div");
+    t.className = "tick"; t.style.left = (f*100) + "%";
+    t.innerHTML = "<i>" + (f===0 ? "0" : f===1 ? "$1M" : "$" + (D.goal*f/1000) + "k") + "</i>";
+    rail.appendChild(t);
+  });
+
+  // days strip — 48 blocks standing in for the whole run
+  const strip = document.getElementById("strip"), BLOCKS = 48;
+  for(let i=0;i<BLOCKS;i++){
+    const b = document.createElement("div");
+    if(i < Math.round(elapsed/totalDays*BLOCKS)) b.className = "spent";
+    strip.appendChild(b);
+  }
+
+  // counter roll-up
+  const el = document.getElementById("total");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce || saved === 0){ el.textContent = money(saved); }
+  else {
+    const t0 = performance.now(), dur = 1800;
+    (function tick(t){
+      const p = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-p,4);
+      el.textContent = money(saved*e);
+      if(p<1) requestAnimationFrame(tick);
+    })(t0);
+  }
+  requestAnimationFrame(()=>{ document.getElementById("fill").style.width = pct + "%"; });
+
+  // ── year one ──
+  const y1 = D.year1, y1End = new Date(y1.endDate);
+  const y1Saved = D.ledger.filter(e => new Date(e.date) < y1End)
+                          .reduce((s,e) => s + e.amount, 0);
+  const y1Left  = Math.max(0, Math.round((y1End - now)/DAY));
+  const y1Pct   = Math.min(100, y1Saved / y1.goal * 100);
+
+  document.getElementById("y1Now").textContent  = "$" + money(y1Saved);
+  document.getElementById("y1Goal").textContent = "of $" + money(y1.goal);
+  document.getElementById("y1Sub").textContent  =
+    y1Pct.toFixed(0) + "% · " + y1Left.toLocaleString() + " days left in year one";
+  requestAnimationFrame(()=>{ document.getElementById("y1Fill").style.width = y1Pct + "%"; });
+
+  document.getElementById("y1Checks").innerHTML = y1.milestones.map(m => `
+    <li class="${m.done ? "done" : ""}"><span class="box"></span><span>${m.label}</span></li>`).join("");
+
+  // ledger
+  document.getElementById("ledgerList").innerHTML = D.ledger.map(e => `
+    <div class="entry">
+      <time>${new Date(e.date).toLocaleDateString("en-AU",{day:"2-digit",month:"short",year:"numeric"})}</time>
+      <div class="note">${e.note}</div>
+      <div class="amt ${e.amount<0?"neg":e.amount>0?"pos":""}">${e.amount<0?"−":"+"}$${money(Math.abs(e.amount))}</div>
+    </div>`).join("");
+
+  // journal
+  document.getElementById("postList").innerHTML = D.posts.map((p,i) => `
+    <details class="post" ${i===0?"open":""}>
+      <summary>
+        <time>${new Date(p.date).toLocaleDateString("en-AU",{day:"2-digit",month:"short",year:"numeric"})}</time>
+        <h3>${p.title}</h3>
+        <span class="chev">+</span>
+      </summary>
+      <div class="body">${p.body.map(t => `<p>${t}</p>`).join("")}</div>
+    </details>`).join("");
+
+  // projects
+  document.getElementById("projectGrid").innerHTML = D.projects.map(p => `
+    <div class="card">
+      <span class="status"><span class="dot ${p.status}"></span>${p.status}</span>
+      <h3>${p.name}</h3>
+      <div class="problem">“${p.problem}”</div>
+      <p class="what">${p.what}</p>
+      ${p.link ? `<a class="visit" href="${p.link}">Open →</a>` : ""}
+    </div>`).join("");
+
+  // footer links
+  document.getElementById("footLinks").innerHTML =
+    D.links.map(l => `<a href="${l.url}">${l.label}</a>`).join("");
+})();
+</script>
+<!-- ══════════════════════════════════════════════════════════════════
+     ANALYTICS — how many people visit, which pages they read.
+     Free, no cookies, no banner needed. Two options:
+
+     1. GoatCounter (goatcounter.com) — free for personal sites.
+        Sign up, pick a code name, then uncomment the two lines below
+        and swap YOURCODE for the name you chose.
+
+     2. Cloudflare Web Analytics (dash.cloudflare.com) — also free.
+        It gives you a script tag; paste it in place of the block below.
+
+     Until you uncomment one of these, nothing is tracked at all.
+     ══════════════════════════════════════════════════════════════════ -->
+<!--
+<script data-goatcounter="https://YOURCODE.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+-->
+
+</body>
+</html>
