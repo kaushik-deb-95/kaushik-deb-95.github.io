@@ -138,7 +138,9 @@ reader could use, or that change what is possible.
 COPYRIGHT: write every summary entirely in your own words. Do not quote the
 source articles. Do not copy their sentence structure.
 
-Reply with ONLY a JSON object, no markdown fences, no preamble:
+Reply with ONLY a valid JSON object: no markdown fences, no preamble, and
+avoid unescaped quotation marks inside any headline, summary, or why text —
+use a single quote or rephrase instead:
 
 {{
   "intro": "One or two sentences framing the day. Concrete, not throat-clearing.",
@@ -160,7 +162,12 @@ Reply with ONLY a JSON object, no markdown fences, no preamble:
 
     text = "".join(b.text for b in reply.content if b.type == "text")
     text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
-    return json.loads(text)
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        print("Claude's reply wasn't valid JSON. Raw reply below:", file=sys.stderr)
+        print(text, file=sys.stderr)
+        raise
 
 
 def main():
