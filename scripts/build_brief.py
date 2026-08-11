@@ -163,7 +163,7 @@ use a single quote or rephrase instead:
     text = "".join(b.text for b in reply.content if b.type == "text")
     text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
     try:
-        return json.loads(text)
+        return json.loads(text, strict=False)
     except json.JSONDecodeError:
         print("Claude's reply wasn't valid JSON. Raw reply below:", file=sys.stderr)
         print(text, file=sys.stderr)
