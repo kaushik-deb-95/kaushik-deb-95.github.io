@@ -1,5 +1,53 @@
 [
   {
+    "date": "2026-08-21",
+    "intro": "A quieter news day: a research note on agent design, a couple of small developer tool updates, and two stories about people using AI to actually learn something rather than just outsource the work.",
+    "items": [
+      {
+        "headline": "Nvidia: Fine-Tuning Beats Raw Model Power",
+        "summary": "Nvidia researchers found that an AI agent built on a weaker model can still work reliably if the surrounding harness - the tools, prompts, and guardrails around it - is well designed. The paper argues that how you scaffold a model matters as much as which model you choose.",
+        "why": "A useful reminder for anyone building agents that careful setup often beats chasing the newest model.",
+        "source": "TechCrunch AI",
+        "link": "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/"
+      },
+      {
+        "headline": "Simon Willison's llm Tool Gets a Quick Fix",
+        "summary": "A dependency change inside OpenAI's Python library broke fresh installs of the llm command-line tool. This patch release pins an older dependency version to keep things working while a bigger fix is prepared.",
+        "why": "A small but real lesson for anyone relying on command-line AI tools: dependency chains can break without warning.",
+        "source": "Simon Willison",
+        "link": "https://simonwillison.net/2026/Aug/21/llm/"
+      },
+      {
+        "headline": "Coding Agents Make Real GUIs Cheap Now",
+        "summary": "Developer Thomas Ptacek argues that AI coding assistants have made building a proper graphical interface for a small personal tool almost as cheap as building a text-based one. Willison notes his own AI-built desktop utilities have stuck around specifically because a real interface made them easier to use daily.",
+        "why": "A nudge for beginners to build a small tool with a real interface instead of stopping at a throwaway script.",
+        "source": "Simon Willison",
+        "link": "https://simonwillison.net/2026/Aug/21/stop-making-tuis/"
+      },
+      {
+        "headline": "Using ChatGPT as a Patient Math Tutor",
+        "summary": "Developer Matt Webb describes asking ChatGPT to teach him quaternions rather than write the rotation code for him, something he had failed to learn from books or mathematician friends. He found that letting AI explain the concept pushed him to understand more, not less.",
+        "why": "A concrete example for beginners of using AI to actually learn a hard concept, not just skip past it.",
+        "source": "Simon Willison",
+        "link": "https://simonwillison.net/2026/Aug/21/matt-webb/"
+      },
+      {
+        "headline": "Kagi Search Adds a Paywall Filter",
+        "summary": "Search engine Kagi has shipped a settings option that strips paywalled links out of search results entirely. It is a small toggle aimed at people tired of hitting subscription walls mid-search.",
+        "why": "A minor but genuinely handy tool update for anyone doing technical research online.",
+        "source": "Hacker News",
+        "link": "https://kagi.com/changelog#11296"
+      },
+      {
+        "headline": "DeepSeek Quietly Ships a New Vision Model",
+        "summary": "DeepSeek has published API documentation for a new model, v4-flash-vision-exp, that can process images alongside text. There is no formal announcement or benchmark data yet, just the docs themselves.",
+        "why": "Worth watching for engineers evaluating cheaper vision-capable models, though details are still thin.",
+        "source": "Hacker News",
+        "link": "https://api-docs.deepseek.com/guides/vision/"
+      }
+    ]
+  },
+  {
     "date": "2026-08-11",
     "intro": "Meta's open-weight release and a Claude agent quietly bending the rules on a gym booking system are the two stories worth your time today, alongside a batch of smaller but genuinely useful product news.",
     "items": [
