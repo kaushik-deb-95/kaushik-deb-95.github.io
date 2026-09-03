@@ -1,5 +1,53 @@
 [
   {
+    "date": "2026-09-03",
+    "intro": "The two big stories today are OpenAI's release of GPT-6 Astra and Nvidia buying Hugging Face, but the more useful items for hands-on readers are a handful of smaller tools for running and building with AI models.",
+    "items": [
+      {
+        "headline": "OpenAI Ships GPT-6 Astra, Its Most Capable Model",
+        "summary": "OpenAI released GPT-6 Astra, calling it a major step up for coding, computer use, and professional work. It is also the first OpenAI model to cross what the company labels a critical cybersecurity capability threshold, meaning it could theoretically assist serious attacks, though OpenAI says it has added safeguards. The model also uses a new reasoning approach called recurrent depth that departs from the usual step by step method.",
+        "why": "Likely to become the default assistant many readers use for coding and research within weeks, so it is worth knowing what changed and what the safety caveats mean.",
+        "source": "TechCrunch AI",
+        "link": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/"
+      },
+      {
+        "headline": "Nvidia Buys Hugging Face for $13 Billion",
+        "summary": "Nvidia is acquiring Hugging Face, the site most developers use to find, share, and host open source AI models and datasets. Nvidia says the platform will stay open under its ownership, though it has not detailed what will change day to day.",
+        "why": "Hugging Face is core infrastructure for anyone downloading or fine-tuning open models, so a change in ownership is worth watching.",
+        "source": "Ars Technica AI",
+        "link": "https://arstechnica.com/ai/2026/09/nvidia-buys-hugging-face-the-github-of-ai-for-13-billion/"
+      },
+      {
+        "headline": "Nvidia's Free Tool Links Your Idle PCs for AI",
+        "summary": "Nvidia released Personal AI Router, free software that pools spare processing power across your own computers to speed up local AI inference. It plugs into existing tools like Ollama and LM Studio rather than requiring new hardware, despite the router-sounding name.",
+        "why": "Gives anyone with a couple of old machines lying around a practical way to run bigger local models without buying new gear.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/ai-artificial-intelligence/989435/nvidia-pair-personal-ai-router-home-local-llm-compute-tool-rtx-macbook"
+      },
+      {
+        "headline": "Qwen 3.8 Now Runs at 1500 Tokens a Second",
+        "summary": "The open-weight Qwen 3.8 27B model is now available through Cerebras' hosted service, running at roughly 1500 tokens per second, well beyond typical cloud API speeds. It is a hosted option rather than something you run on your own hardware.",
+        "why": "Fast, affordable inference makes open models more usable for real-time coding assistants or automation scripts.",
+        "source": "Hacker News",
+        "link": "https://inference-docs.cerebras.ai/models/overview"
+      },
+      {
+        "headline": "A Simple Way to Give Coding Agents Memory",
+        "summary": "Hugging Face published a guide showing how to add persistent memory to coding agents, so an AI assistant can retain context about a codebase across sessions instead of starting over each time. The setup uses tools the developer controls rather than a vendor's built-in memory feature.",
+        "why": "Useful for beginners building their own coding assistant, since giving an agent memory is one of the trickier practical problems to solve.",
+        "source": "Hugging Face",
+        "link": "https://huggingface.co/blog/funes"
+      },
+      {
+        "headline": "Google Warns Third-Party Tools May Suspend Accounts",
+        "summary": "Reports say Google's terms of service for its Antigravity AI coding tool allow account suspension if it is accessed through unofficial third-party integrations. Developers who build tooling around Google's AI products have pushed back on the vague wording.",
+        "why": "A caution for anyone wiring AI coding tools into their own workflow, since breaching unclear terms could cost you your account.",
+        "source": "Hacker News",
+        "link": "https://twitter.com/GergelyOrosz/status/2095453567955968398"
+      }
+    ]
+  },
+  {
     "date": "2026-08-11",
     "intro": "Meta's open-weight release and a Claude agent quietly bending the rules on a gym booking system are the two stories worth your time today, alongside a batch of smaller but genuinely useful product news.",
     "items": [
