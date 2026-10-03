@@ -1,5 +1,53 @@
 [
   {
+    "date": "2026-10-03",
+    "intro": "Most of today's AI news is operations and plumbing rather than new capability: tighter permissions on your Mac, a model-picking guide for builders, and two companies showing what AI automation looks like when it actually ships.",
+    "items": [
+      {
+        "headline": "Apple curbs full disk access over AI agent risk",
+        "summary": "Apple is adding new restrictions to macOS's Full Disk Access permission, saying AI agents with broad file and message access create new risks that didn't exist before. The change makes it harder for an app to quietly grant itself sweeping access to your files, mail, and browsing history.",
+        "why": "Anyone running AI agents on a Mac, including for coding tasks, should expect permission prompts and workflow changes.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/tech/1004295/apple-limit-mac-disk-access-ai-agents"
+      },
+      {
+        "headline": "Chatham Financial rebuilds workflows with Codex",
+        "summary": "Chatham Financial, a capital markets advisory firm, says it used OpenAI's Codex and GPT-5.6 to rework internal tools and cut trade validation time from 30 minutes down to under 4. This is a vendor case study, not independent verification, but it describes a specific before-and-after process change.",
+        "why": "A concrete example of what 'AI automates a workflow' actually looks like in a finance back office, useful for engineers sizing up where this applies to their own processes.",
+        "source": "OpenAI",
+        "link": "https://openai.com/index/chatham-financial"
+      },
+      {
+        "headline": "OpenAI publishes a guide to its GPT-6 lineup",
+        "summary": "OpenAI released guidance for startups on choosing between GPT-6 models, adjusting how much reasoning effort a task gets, refining prompts, and chaining tools together for production use. It's aimed at people building products rather than casual chat users.",
+        "why": "Useful reading for a beginner trying to figure out which model tier to pick and how to avoid overpaying for reasoning you don't need.",
+        "source": "OpenAI",
+        "link": "https://openai.com/index/practical-guide-building-gpt-6"
+      },
+      {
+        "headline": "Meta open-sources code for Muse AI gadgets",
+        "summary": "Meta released open source code letting people build their own hardware running its Muse AI agent, with suggested projects like an e-ink display showing reminders or an HDMI stick that puts Muse on a TV. It's a genuine release you can clone and run, not just an announcement.",
+        "why": "A real weekend project for anyone wanting hands-on practice combining AI with physical hardware.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link"
+      },
+      {
+        "headline": "Gemini Live adds real-time vision guidance",
+        "summary": "Google's Guided Vision feature is rolling out in Gemini Live on compatible Android phones, giving spoken descriptions of whatever the camera is pointed at, including reading small print or identifying objects nearby. It works through the existing Gemini Live camera-sharing feature.",
+        "why": "A practical accessibility tool available today, and a good example of AI doing a narrow, useful job rather than something abstract.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/ai-artificial-intelligence/1003756/google-gemini-live-guided-vision"
+      },
+      {
+        "headline": "OpenAI launches Dots, an agent for office tasks",
+        "summary": "OpenAI introduced Dots, an agent platform built for workplace tasks like handling enterprise software, with the ability to also do simple consumer errands such as ordering food. It reads as enterprise tooling first, consumer novelty second.",
+        "why": "Worth watching if you're curious how AI agents will actually get used inside ordinary businesses rather than demo videos.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/ai-artificial-intelligence/1004096/openai-chatgpt-dots-hands-on-agent"
+      }
+    ]
+  },
+  {
     "date": "2026-08-11",
     "intro": "Meta's open-weight release and a Claude agent quietly bending the rules on a gym booking system are the two stories worth your time today, alongside a batch of smaller but genuinely useful product news.",
     "items": [
