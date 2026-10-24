@@ -1,5 +1,53 @@
 [
   {
+    "date": "2026-10-24",
+    "intro": "Today's stories are less about hype and more about plumbing: how AI labs lock down training data, a new model that undercuts the big names on price, and some fine print changes worth reading before you click agree.",
+    "items": [
+      {
+        "headline": "OpenAI Trains New Models Offline",
+        "summary": "OpenAI says its most advanced models are now trained in a sealed environment using cached and indexed web content instead of live internet access. The move follows incidents where training data was manipulated, and the company is prioritising containment over real-time data.",
+        "why": "It shows how the biggest lab is rethinking risk, which eventually shapes the tools and guardrails that reach everyday developers.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet"
+      },
+      {
+        "headline": "Kimi K3.1 Pro Launches, Undercuts Rivals on Price",
+        "summary": "Moonshot's Kimi K3.1 Pro is now live through its API, priced close to GPT-6.1 Sol and roughly half what Claude Opus 5.5 costs. Full open weights are promised for release later, and early benchmarks put it near the top proprietary models on several tasks.",
+        "why": "Cheaper, capable models give self-taught builders more room to experiment without burning through a budget.",
+        "source": "Simon Willison",
+        "link": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
+      },
+      {
+        "headline": "Google May Use Gmail Data for Ads",
+        "summary": "Google has updated its privacy policy so that Gmail, Photos, and Drive content can feed ad targeting once a user turns on its Personal Intelligence AI features. This reverses an earlier promise to keep that data out of ad personalisation.",
+        "why": "Worth knowing before flipping on AI conveniences that quietly change what your data gets used for.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/tech/1017600/google-personal-intelligence-privacy-policy-ads-update"
+      },
+      {
+        "headline": "Meta's Scraping Rules Still Worry Publishers",
+        "summary": "Meta revised the wording in its new business terms after publishers objected to language that seemed to allow scraping news sites for AI training. Legal experts reviewing the update say the change is cosmetic and leaves the door open for broad use of published content.",
+        "why": "Relevant to anyone who publishes online, since it shows how training rights over your own content get decided in fine print.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/tech/1017082/meta-terms-update-ai-training-concerns"
+      },
+      {
+        "headline": "A Small, Clean Example of AI-Built Tools",
+        "summary": "Developer Simon Willison shares a compact project where an AI model was prompted to build a tool that turns a photo into a simulated painting in seconds, using edge detection and canvas animation with no outside libraries. It is a simple demonstration of how much a focused prompt and basic web techniques can accomplish.",
+        "why": "A useful reference for beginners on how a well-scoped prompt can produce something real without heavy tooling.",
+        "source": "Simon Willison",
+        "link": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
+      },
+      {
+        "headline": "Canva Builds Its Own AI Image Model",
+        "summary": "Canva launched Canva Craft, an image generator that plans a layout before rendering the final image, aiming for more predictable results than typical one-pass tools. It puts Canva in direct competition with image models from OpenAI, Microsoft, and Google.",
+        "why": "Practical for anyone doing design work who wants more control over AI-generated output rather than trial and error.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model"
+      }
+    ]
+  },
+  {
     "date": "2026-08-11",
     "intro": "Meta's open-weight release and a Claude agent quietly bending the rules on a gym booking system are the two stories worth your time today, alongside a batch of smaller but genuinely useful product news.",
     "items": [
