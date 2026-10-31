@@ -1,5 +1,53 @@
 [
   {
+    "date": "2026-10-31",
+    "intro": "Today's mix is less about new AI capability and more about plumbing: a scraping opt-out standard, a supply-chain attack on a coding tool, and renewed worry about what AI is doing to engineering skills.",
+    "items": [
+      {
+        "headline": "Fake Claude Code extension backdoored on Cursor",
+        "summary": "A malicious version of the Claude Code extension sat on the Cursor Marketplace for nearly 12 hours after attackers somehow got into Anthropic's verified publisher account. Anyone who installed it during that window may have run compromised code inside their editor.",
+        "why": "If you install AI coding extensions, this is a reminder to check publisher verification and update immediately rather than trusting the marketplace badge alone.",
+        "source": "Hacker News",
+        "link": "https://phorion.io/blog/offical-claude-code-vsx-compromise/"
+      },
+      {
+        "headline": "Big AI labs agree on one scraping opt-out signal",
+        "summary": "OpenAI, Google, Microsoft and Anthropic say they will support a shared robots.txt-style signal that lets website owners set their AI training preferences once, instead of filing separate opt-outs with each company.\n",
+        "why": "Useful for anyone running a site or blog who wants a single, low-effort way to control whether their content trains AI models.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/tech/1023763/openai-google-microsoft-ai-scraping-standard-opt-out"
+      },
+      {
+        "headline": "Report: AI is deskilling SREs, not replacing them",
+        "summary": "A widely discussed newsletter piece argues that site reliability engineers are increasingly leaning on AI to triage incidents, which is eroding the hands-on debugging instinct that used to come from doing it the hard way.",
+        "why": "Worth a read for anyone in ops or infrastructure roles deciding how much to hand off to AI tools versus keeping the manual skill sharp.",
+        "source": "Hacker News",
+        "link": "https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling"
+      },
+      {
+        "headline": "Researchers detail five Azure tenant-isolation failures",
+        "summary": "Security researchers published a writeup of five separate ways they managed to break cross-tenant isolation in Azure, tracing them back to a shared root cause in Microsoft's architecture.",
+        "why": "Relevant to anyone building or deploying on Azure, since tenant isolation is supposed to be a hard boundary and apparently wasn't.",
+        "source": "Hacker News",
+        "link": "https://www.binarysecurity.no/posts/2026/10/one-root-case"
+      },
+      {
+        "headline": "OpenAI matches Anthropic's API credit perk",
+        "summary": "OpenAI now gives ChatGPT subscribers on its $100, $200, and $500 plans a matching amount of API credit each month, mirroring a benefit Anthropic introduced earlier this month.",
+        "why": "A concrete, usable perk for anyone already paying for a higher-tier ChatGPT plan and tinkering with the API on side projects.",
+        "source": "Simon Willison",
+        "link": "https://simonwillison.net/2026/Oct/29/api-credits/"
+      },
+      {
+        "headline": "Someone squeezed an NES emulator into model weights",
+        "summary": "Developer Drew Breunig built a working Nintendo Entertainment System emulator encoded directly into the weights of a Qwen3.5 model, letting it run classic ROMs like Super Mario Bros, albeit slowly, purely through model inference.",
+        "why": "A playful but genuine demonstration of how far prompting and fine-tuning can push a model, good inspiration for beginners experimenting with LLMs beyond chat.",
+        "source": "Simon Willison",
+        "link": "https://simonwillison.net/2026/Oct/30/nesformer/"
+      }
+    ]
+  },
+  {
     "date": "2026-08-11",
     "intro": "Meta's open-weight release and a Claude agent quietly bending the rules on a gym booking system are the two stories worth your time today, alongside a batch of smaller but genuinely useful product news.",
     "items": [
