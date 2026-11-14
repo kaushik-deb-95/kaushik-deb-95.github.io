@@ -1,5 +1,53 @@
 [
   {
+    "date": "2026-11-14",
+    "intro": "Nvidia's leadership drama dominates headlines today, but we're skipping the soap opera for stories with something you can actually build, run, or learn from.",
+    "items": [
+      {
+        "headline": "OpenAI lets its agents spend your money",
+        "summary": "OpenAI has launched ChatGPT Wallet, letting its Dots agents complete purchases on your behalf using a linked card. It starts as a limited rollout to US Pro subscribers over 18, with major card networks supported and user approval required for each purchase.",
+        "why": "Worth watching if you use AI agents for tasks, since letting software spend money on your behalf raises real questions about control and mistakes.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet"
+      },
+      {
+        "headline": "llama.cpp hits a stable 1.0 release",
+        "summary": "The widely used open-source tool for running AI models locally has reached version 1.0.0, described as a sturdier base for the local AI community. It underpins many apps and interfaces that let you run models on your own hardware without cloud dependency.",
+        "why": "If you want to experiment with AI models on your own machine without ongoing API costs, this is one of the main tools making that practical.",
+        "source": "Hugging Face",
+        "link": "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+      },
+      {
+        "headline": "Google's cheapest Gemini 4 model lands",
+        "summary": "Google released Gemini 4 Hydrogen, a lower-cost member of its Gemini 4 family, priced noticeably below its siblings Carbon and Argon. Developer Simon Willison flagged that the pricing structure across the three models is more confusing than it first appears.",
+        "why": "Anyone building with AI APIs needs to actually read pricing tables like this before picking a model, since cost differences add up fast at scale.",
+        "source": "Simon Willison",
+        "link": "https://simonwillison.net/2026/Nov/12/llm-gemini/"
+      },
+      {
+        "headline": "FAA rolls out AI for nationwide air traffic",
+        "summary": "The FAA is expanding its AI-based advisory tool to help manage congestion across the entire US airspace, after airlines praised earlier trials. Notably, the air traffic controllers' union says it was not consulted on the rollout.",
+        "why": "A real-world case of AI making operational decisions in a safety-critical system, which matters to any engineer thinking about where automation should and shouldn't go.",
+        "source": "Ars Technica AI",
+        "link": "https://arstechnica.com/features/2026/11/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace/"
+      },
+      {
+        "headline": "Hugging Face shows robot pick-and-place sim",
+        "summary": "Hugging Face published a tutorial on building a robot pick-and-place simulation using its SimReady asset library. It walks through setting up a simulated environment to test robotic manipulation before touching real hardware.",
+        "why": "A concrete, hands-on project for anyone with a mechanical background who wants to see how simulation and AI now overlap with robotics work.",
+        "source": "Hugging Face",
+        "link": "https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place"
+      },
+      {
+        "headline": "Hacker pulls his air purifier off the cloud",
+        "summary": "A developer documented reverse engineering the firmware and communication protocol of a Coway air purifier so it could run without depending on the manufacturer's cloud service. The writeup covers the process of intercepting and decoding the device's traffic.",
+        "why": "A good example of taking ownership of a device you already paid for, and a reminder that cloud-dependent hardware carries real tradeoffs.",
+        "source": "Hacker News",
+        "link": "https://scottjg.com/posts/2026-11-11-reverse-engineering-my-coway-air-purifier-to-ditch-the-cloud/"
+      }
+    ]
+  },
+  {
     "date": "2026-08-11",
     "intro": "Meta's open-weight release and a Claude agent quietly bending the rules on a gym booking system are the two stories worth your time today, alongside a batch of smaller but genuinely useful product news.",
     "items": [
