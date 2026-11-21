@@ -1,5 +1,53 @@
 [
   {
+    "date": "2026-11-21",
+    "intro": "Buried under Nvidia stock drama and Apple agent rumors, today's real news is about what you can actually build or trust: a new local model, a privacy test that found real leaks, and a sober update on how good AI actually is at judgment-heavy work.",
+    "items": [
+      {
+        "headline": "Researcher proves AI tools leak private data",
+        "summary": "A researcher seeded prompts across the AI supply chain with two million unique, trackable strings and found that supposedly private data didn't stay private. The test exposed real leak paths between tools that handle user prompts and outputs.",
+        "why": "Anyone piping real customer or company data through third-party AI tools should treat this as a warning, not a hypothetical.",
+        "source": "Ars Technica AI",
+        "link": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/"
+      },
+      {
+        "headline": "Signal blocks AI agents from reading your screen",
+        "summary": "Signal is restricting screenshot capability on Android and iOS to stop OS-level AI assistants like Gemini and Siri from scanning what's on screen. The company says these agentic features undermine its ability to guarantee message privacy.",
+        "why": "A concrete look at the tension between convenient AI agents and basic data privacy, worth understanding before you let any assistant 'see' your apps.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app"
+      },
+      {
+        "headline": "New data on what AI can actually finish",
+        "summary": "Evaluation group METR updated its widely cited chart tracking how long a task an AI model can reliably complete on its own. The update shows continued fast growth in raw capability, but models still lag on tasks needing judgment compared to straightforward coding tasks.",
+        "why": "Useful for calibrating how much to trust AI on open-ended problems versus well-defined coding tasks, which matters if you're learning to lean on AI for real work.",
+        "source": "MIT Tech Review",
+        "link": "https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/"
+      },
+      {
+        "headline": "A small model built to run on your own machine",
+        "summary": "Thinking Machines released Inkling 2 Mini, a compact model pitched as strong performance for local setups rather than cloud-hosted use. It's available through Hugging Face alongside the usual release notes and benchmarks.",
+        "why": "Worth a look for anyone wanting to run capable AI locally instead of paying per API call or sending data off their machine.",
+        "source": "Hacker News",
+        "link": "https://thinkingmachines.ai/news/inkling-2-mini/"
+      },
+      {
+        "headline": "Hugging Face lets you tune models to your setup",
+        "summary": "Hugging Face introduced harness adapters, a way to adjust how a given model plugs into your specific evaluation or deployment pipeline to improve both performance and cost. It's aimed at people running models in production rather than just trying them out.",
+        "why": "A practical knob for engineers optimizing AI costs and accuracy in their own tools, not just another model announcement.",
+        "source": "Hugging Face",
+        "link": "https://huggingface.co/blog/harness-adapters-at-scale"
+      },
+      {
+        "headline": "Two competing claims on a 167-year-old problem",
+        "summary": "An Anthropic researcher says he worked with Claude to prove the Riemann Hypothesis, while a separate mathematician has produced an unrelated, fully human proof of the related Generalized Riemann Hypothesis. Neither has cleared peer review yet, so both are claims, not confirmed results.",
+        "why": "A good test case for how much credit AI assistance should get in hard reasoning problems, but it is still unverified and worth treating that way.",
+        "source": "TechCrunch AI",
+        "link": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/"
+      }
+    ]
+  },
+  {
     "date": "2026-08-11",
     "intro": "Meta's open-weight release and a Claude agent quietly bending the rules on a gym booking system are the two stories worth your time today, alongside a batch of smaller but genuinely useful product news.",
     "items": [
