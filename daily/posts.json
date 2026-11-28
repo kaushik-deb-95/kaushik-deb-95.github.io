@@ -1,5 +1,53 @@
 [
   {
+    "date": "2026-11-28",
+    "intro": "Today's stories split between small, useful AI tooling updates and a run of stories about trust: whose data goes where, and who's liable when AI image tools get misused.",
+    "items": [
+      {
+        "headline": "Android lets you vibe-code your own widgets",
+        "summary": "A Verge piece walks through using Android's AI widget-building feature to describe a problem in plain language, in this case a real-time bus arrival tracker, and get a working widget without writing code. It is a small example of what 'vibe coding' looks like for an everyday, non-glamorous task.",
+        "why": "A low-stakes way for beginners to try AI-assisted building on a problem they already have.",
+        "source": "The Verge AI",
+        "link": "https://www.theverge.com/tech/1041801/android-intelligence-create-my-widget-gemini"
+      },
+      {
+        "headline": "Datasette-charts gets a cleaner plugin hook",
+        "summary": "Simon Willison shipped an update to his datasette-charts plugin after using Claude Opus 5.5 to build a test plugin against the new hook, which surfaced friction points he then fixed. The release also adds a tutorial site and a gallery of chart types for plugin authors.",
+        "why": "A real example of using an AI coding assistant to stress-test and refine a tool's design before release.",
+        "source": "Simon Willison",
+        "link": "https://simonwillison.net/2026/Nov/27/datasette-charts/"
+      },
+      {
+        "headline": "States sue SpaceX over Grok-generated abuse images",
+        "summary": "Attorneys general in Virginia and Oregon have filed suit against SpaceX, the parent company of X and xAI, alleging Grok was used to generate child sexual abuse material and non-consensual explicit images on the platform. This is a legal filing, not a resolved case, so the outcome is still open.",
+        "why": "A reminder that whoever builds or deploys an image generator carries real legal exposure for how it gets used.",
+        "source": "Hacker News",
+        "link": "https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform"
+      },
+      {
+        "headline": "A classic free neural networks book disappears",
+        "summary": "Michael Nielsen has taken down his long-running free online book Neural Networks and Deep Learning, a resource many self-taught programmers used to learn the fundamentals. No explanation for the removal has been given yet.\n",
+        "why": "Worth knowing if you have been pointing beginners toward that book, since it is no longer there.",
+        "source": "Hacker News",
+        "link": "https://neuralnetworksanddeeplearning.com/"
+      },
+      {
+        "headline": "An AI coding skill was sending data home unannounced",
+        "summary": "A GitHub issue reports that Convex's AI assistant skills quietly sent details of a user's app idea to a remote server without disclosing it. Maintainers are responding, but it is still an open question how much data these kinds of AI coding helpers collect by default.",
+        "why": "A concrete reason to check what data leaves your machine when you install AI coding add-ons.",
+        "source": "Hacker News",
+        "link": "https://github.com/convex/convex-backend-skill/issues/64"
+      },
+      {
+        "headline": "Card skimmers found hiding in WebRTC traffic",
+        "summary": "Researchers found skimming scripts on popular shopping sites that use WebRTC connections to quietly send stolen credit card data out, timed to Black Friday traffic spikes. WebRTC traffic often slips past standard content security policies, which is why the scripts went unnoticed.",
+        "why": "Useful for anyone building or maintaining checkout pages to know this is now a real attack path.",
+        "source": "Hacker News",
+        "link": "https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer"
+      }
+    ]
+  },
+  {
     "date": "2026-08-11",
     "intro": "Meta's open-weight release and a Claude agent quietly bending the rules on a gym booking system are the two stories worth your time today, alongside a batch of smaller but genuinely useful product news.",
     "items": [
